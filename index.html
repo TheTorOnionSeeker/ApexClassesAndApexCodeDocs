@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Documentación Clase Apex EncuestasObtenerBatch</title>
+    <meta charset="UTF-8">
+    <script type="module" src="./assets/index.js"></script>
+    <script type="module" src="./assets/search-idx.js"></script>
+    <script type="module" src="./assets/search.js"></script>
+    <script charset="UTF-8" src="./assets/highlight.js"></script>
+    <script charset="UTF-8" src="./assets/mark.js"></script>
+    <script charset="UTF-8" src="./assets/lunr.js"></script>
+    <link rel="stylesheet" href="./assets/highlight.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/index.css" />
+  </head>
+
+  <body>
+    <div id="content">
+      <div>
+        <div class="doc-page">
+
+          <div class="section">
+
+            <h2 class="class-title top-level-type" id="EncuestasObtenerBatch">
+              <span>Clase EncuestasObtenerBatch</span>
+            </h2>
+            <div class="class-container">
+
+              <div class="class-description">
+                Esta es la clase EncuestasObtenerBatch, que implementa la interfaz Database.Batchable&lt;Object&gt; y la interfaz Database.AllowsCallouts. La interfaz Database.Batchable&lt;Object&gt; permite ejecutar un proceso por lotes, es decir, dividir un trabajo grande en partes más pequeñas y procesarlas de forma asíncrona. La interfaz Database.AllowsCallouts permite hacer llamadas a servicios web externos desde el proceso por lotes. Esta clase se utiliza para obtener datos de encuestas mediante una llamada a servicio externo y procesarlos en lotes. De esta manera, se ejecuta una llamada HTTP para obtener datos de encuestas y luego se procesan esos datos para crear registros en Salesforce.
+              </div>
+              <div class="class-subtitle">
+                Signature
+              </div>
+
+              <div class="class-signature">
+                public class EncuestasObtenerBatch implements Database.Batchable&lt;Object&gt;, Database.AllowsCallouts
+              </div>
+              <div class="class-subtitle">
+                Authors
+              </div>
+              <div class="class-subtitle-description">
+              Guillermo Oscar Núñez
+              </div>
+              <div class="class-subtitle">
+                Since
+              </div>
+              <div class="class-subtitle-description">
+                <li>2024-03-04 Added documentation to the code</li>
+              </div>
+            </div>
+            <div class="subsection methods">
+              <h3 class="subsection-title methods">Métodos de la clase EncuestasObtenerBatch</h3>
+              <div class="methods-container">
+                <div class="methods-toc">
+                  <div class="method public"></div>
+                  <div class="method public">
+                    <a class="methods-toc__entry " href="#EncuestasObtenerBatch.start">
+                      start (bc)
+                    </a>
+
+                    <div class="methods-toc__description">
+                      Éste es el método start, que se ejecuta al inicio del proceso por lotes. Configura una llamada HTTP para obtener datos de encuestas y devuelve los datos en forma de lista de objetos.
+                    </div>
+                  </div>
+                  <div class="method public">
+                    <a class="methods-toc__entry " href="#EncuestasObtenerBatch.execute">
+                      execute (bc, scope)
+                    </a>
+
+                    <div class="methods-toc__description">
+                      Este es el método execute, que se ejecuta por cada lote de registros o datos que se procesan. Este método no devuelve nada, pero puede realizar operaciones sobre los registros o datos del lote. Procesa los datos de encuestas obtenidos y crea registros de encuestas, sucursales, cuentas y leads en Salesforce.
+                    </div>
+                  </div>
+                  <div class="method public">
+                    <a class="methods-toc__entry " href="#EncuestasObtenerBatch.finish">
+                      finish (bc)
+                    </a>
+
+                  </div>
+                </div>
+                <div class="method public"></div>
+                <div class="method public">
+                  <h4 class="method-title " id="EncuestasObtenerBatch.start">
+                    <span>start(bc)</span>
+                  </h4>
+                  <div class="method-description">
+                    Éste es el método start, que se ejecuta al inicio del proceso por lotes. Configura una llamada HTTP para obtener datos de encuestas y devuelve los datos en forma de lista de objetos.
+                  </div>
+                  <div class="method-subtitle">
+                    Signature
+                  </div>
+
+                  <div class="method-signature">
+                    public Object[] start(Database.BatchableContext bc)
+                  </div>
+                  <div class="method-subtitle">Parameters</div>
+                  <div class="param-name">bc</div>
+                  <div class="param-type">
+                    Type: <code class="code-inline">Database.BatchableContext</code>
+                  </div>
+                  <div class="param-description">El parámetro bc es un objeto de tipo Database.BatchableContext, que contiene información sobre el contexto de ejecución del proceso por lotes.</div>
+                  <div class="method-subtitle">
+                    Returns
+                  </div>
+                  <div class="method-subtitle-description">
+                    Este método debe devolver una lista iterable de objetos que contiene los datos de encuestas obtenidos, que es el conjunto de registros o datos que se van a procesar por lotes.
+                  </div>
+                </div>
+                <div class="method public">
+                  <h4 class="method-title " id="EncuestasObtenerBatch.execute">
+                    <span>execute(bc, scope)</span>
+                  </h4>
+                  <div class="method-description">
+                    Este es el método execute, que se ejecuta por cada lote de registros o datos que se procesan. Este método no devuelve nada, pero puede realizar operaciones sobre los registros o datos del lote. Procesa los datos de encuestas obtenidos y crea registros de encuestas, sucursales, cuentas y leads en Salesforce.
+                  </div>
+                  <div class="method-subtitle">
+                    Signature
+                  </div>
+
+                  <div class="method-signature">
+                    public void execute(Database.BatchableContext bc, List&lt;Object&gt; scope)
+                  </div>
+                  <div class="method-subtitle">Parameters</div>
+                  <div class="param-name">bc</div>
+                  <div class="param-type">
+                    Type: <code class="code-inline">Database.BatchableContext</code>
+                  </div>
+                  <div class="param-description">El parámetro bc es un objeto de tipo Database.BatchableContext, que contiene información sobre el contexto de ejecución del proceso por lotes.</div>
+                  
+                  <div class="param-name">scope</div>
+                  <div class="param-type">
+                    Type: <code class="code-inline">List</code>
+                  </div>
+                  <div class="param-description">El parámetro scope es una lista de objetos, que representa el lote de registros o datos que se van a procesar. La lista de objetos contiene los datos de encuestas obtenidos.</div>
+                </div>
+                <div class="method public">
+                  <h4 class="method-title " id="EncuestasObtenerBatch.finish">
+                    <span>finish(bc)</span>
+                  </h4>
+                  <div class="method-subtitle">
+                    Signature
+                  </div>
+
+                  <div class="method-signature">
+                    public void finish(Database.BatchableContext bc)
+                  </div>
+                </div>
+                <h3 class="subsection-title methods">Ampliación del funcionamiento de métodos</h3>
+                <div class="method public"></div>
+                <div class="method public">
+                  <h4 class="method-title " id="EncuestasObtenerBatch.execute">
+                    <span>start(bc)</span>
+                  </h4>
+                  <div class="method-subtitle">
+                    Http http = new Http();
+                  </div>
+                  <div class="method-signature">
+                    Se crea un objeto de tipo Http, que representa una conexión HTTP.
+                  </div>
+
+                  <div class="method-subtitle">
+                    HttpRequest request = new HttpRequest();
+                  </div>
+                  <div class="method-signature">
+                    Se crea un objeto de tipo HttpRequest, que representa una solicitud HTTP.
+                  </div>
+
+                  <div class="method-subtitle">
+                    DateTime fechaEjecucion = System.now()-Integer.valueOf(Label.nps_encuestas_cantidaddias);
+                  </div>
+                  <div class="method-signature">
+                    Se crea un objeto de tipo DateTime, que representa la fecha y hora de ejecución del proceso por lotes. Se le resta un valor numérico, que se obtiene de la etiqueta nps_encuestas_cantidaddias, que indica la cantidad de días que se quieren consultar las encuestas.
+                  </div>
+
+                  <div class="method-subtitle">
+                    request.setEndpoint('callout:Encuestas'+'?fecha='+fechaEjecucion.format('yyyy-MM-dd'));
+                  </div>
+                  <div class="method-signature">
+                    Se establece el endpoint de la solicitud HTTP, que es una URL que contiene el servicio web externo al que se quiere llamar. Se le concatena el parámetro fecha, que tiene el formato yyyy-MM-dd, y que representa la fecha desde la cual se quieren obtener las encuestas.
+                  </div>
+
+                  <div class="method-subtitle">
+                    request.setMethod('GET');
+                  </div>
+                  <div class="method-signature">
+                    Se establece el método de la solicitud HTTP, que es GET, que significa que se quiere obtener datos del servicio web externo.
+                  </div>
+
+                  <div class="method-subtitle">
+                    request.setTimeout(120000);
+                  </div>
+                  <div class="method-signature">
+                    Se establece el tiempo de espera de la solicitud HTTP, que es 120000 milisegundos, o 2 minutos.
+                  </div>
+
+                  <div class="method-subtitle">
+                    HttpResponse response = http.send(request);
+                  </div>
+                  <div class="method-signature">
+                    Se envía la solicitud HTTP y se obtiene un objeto de tipo HttpResponse, que representa la respuesta HTTP del servicio web externo.
+                  </div>
+
+                  <div class="method-subtitle">
+                    return (Object[])JSON.deserializeUntyped(response.getBody());
+                  </div>
+                  <div class="method-signature">
+                    Se devuelve el objeto iterable, que se obtiene al deserializar el cuerpo de la respuesta HTTP, que es un texto JSON, a un arreglo de objetos.
+                  </div>
+                </div>
+                <div class="method public">
+                  <h4 class="method-title " id="EncuestasObtenerBatch.execute">
+                    <span>execute(bc, scope)</span>
+                  </h4>
+                  <div class="method-subtitle">
+                    Set&lt;String&gt; externalIdEncuestas=new Set&lt;String&gt;();
+                  </div>
+                  <div class="method-subtitle">
+                    Set&lt;String&gt; externalIdSucursales=new Set&lt;String&gt;();
+                  </div>
+                  <div class="method-signature">
+                    Se crea un conjunto de strings, que representa los identificadores externos de las encuestas y las sucursales.
+                  </div>
+
+                  <div class="method-subtitle">
+                    Map&lt;String,String&gt; idByExternalIdEncuestasMap=new Map&lt;String,String&gt;();
+                  </div>
+                  <div class="method-subtitle">
+                    Map&lt;String,String&gt; idByExternalIdSucursalesMap=new Map&lt;String,String&gt;();
+                  </div>
+                  <div class="method-subtitle">
+                    Map&lt;String,String&gt; idByExternalIdAccountMap=new Map&lt;String,String&gt;();
+                  </div>
+                  <div class="method-subtitle">
+                    Map&lt;String,String&gt; idByExternalIdLeadMap=new Map&lt;String,String&gt;();
+                  </div>
+                  <div class="method-signature">
+                    Se crea un mapa de string a string, que representa los identificadores internos de las encuestas, sucursales, cuentas y leads por sus identificadores externos.
+                  </div>
+
+                  <div class="method-subtitle">
+                    Map&lt;String,String&gt; idByPersonEmailAccountMap=new Map&lt;String,String&gt;();
+                  </div>
+                  <div class="method-signature">
+                    Se crea un mapa de string a string, que representa los identificadores internos de las cuentas por sus correos electrónicos personales.
+                  </div>
+
+                  <div class="method-subtitle">
+                    Map&lt;String,String&gt; idByEmailReservasAccountMap=new Map&lt;String,String&gt;();
+                  </div>
+                  <div class="method-signature">
+                    Se crea un mapa de string a string, que representa los identificadores internos de las cuentas por sus correos electrónicos de reservas y envío de medicamentos.
+                  </div>
+
+                  <div class="method-subtitle">
+                    Map&lt;String,String&gt; idByEmailFacturaAccountMap=new Map&lt;String,String&gt;();
+                  </div>
+                  <div class="method-signature">
+                    Se crea un mapa de string a string, que representa los identificadores internos de las cuentas por sus correos electrónicos de factura electrónica.
+                  </div>
+
+                  <div class="method-subtitle">
+                    Map&lt;String,String&gt; idByEmailTFMAccountMap=new Map&lt;String,String&gt;();
+                  </div>
+                  <div class="method-signature">
+                    Se crea un mapa de string a string, que representa los identificadores internos de las cuentas por sus correos electrónicos de TFM.com.
+                  </div>
+
+                  <div class="method-subtitle">
+                    Map&lt;String,String&gt; idByEmailGTLAccountMap=new Map&lt;String,String&gt;();
+                  </div>
+                  <div class="method-signature">
+                    Se crea un mapa de string a string, que representa los identificadores internos de las cuentas por sus correos electrónicos de GTL.com.
+                  </div>
+
+                  <div class="method-subtitle">
+                    Map&lt;String,String&gt; idByEmailFarmacityAccountMap=new Map&lt;String,String&gt;();
+                  </div>
+                  <div class="method-signature">
+                    Se crea un mapa de string a string, que representa los identificadores internos de las cuentas por sus correos electrónicos de Farmacity.com.
+                  </div>
+
+                  <div class="method-subtitle">
+                    List&lt;Encuesta__c&gt; newEncuestas=new List&lt;Encuesta__c&gt;();
+                  </div>
+                  <div class="method-signature">
+                    Se crea una lista de objetos de tipo Encuesta__c, que representa las nuevas encuestas que se van a insertar.
+                  </div>
+
+                  <div class="method-subtitle">
+                    List&lt;Sucursal__c&gt; newSucursales=new List&lt;Sucursal__c&gt;();
+                  </div>
+                  <div class="method-signature">
+                    Se crea una lista de objetos de tipo Sucursal__c, que representa las nuevas sucursales que se van a insertar.
+                  </div>
+
+                  <div class="method-subtitle">
+                    List&lt;Encuesta_Realizada__c&gt; newEncuestasRealizadas=new List&lt;Encuesta_Realizada__c&gt;();
+                  </div>
+                  <div class="method-signature">
+                    Se crea una lista de objetos de tipo Encuesta_Realizada__c, que representa las nuevas encuestas realizadas que se van a insertar.
+                  </div>
+
+                  <div class="method-subtitle">
+                    List&lt;String&gt; documentosABuscar=new List&lt;String&gt;();
+                  </div>
+                  <div class="method-subtitle">
+                    List&lt;String&gt; emailABuscar=new List&lt;String&gt;();
+                  </div>
+                  <div class="method-signature">
+                    Se crea una lista de strings, que representa los documentos y los correos electrónicos a buscar.
+                  </div>
+
+                  <div class="method-subtitle">
+                    List&lt;Account&gt; newCuentas=new List&lt;Account&gt;();
+                  </div>
+                  <div class="method-signature">
+                    Se crea una lista de objetos de tipo Account, que representa las nuevas cuentas que se van a insertar.
+                  </div>
+
+                  <div class="method-subtitle">
+                    List&lt;Lead&gt; newCandidatos=new List&lt;Lead&gt;();
+                  </div>
+                  <div class="method-signature">
+                    Se crea una lista de objetos de tipo Lead, que representa los nuevos leads que se van a insertar.
+                  </div>
+                  <br>
+                  <br>
+                  <br>
+                  <div class="method-subtitle">
+                    for(Object encuestaObj : scope)
+                  </div>
+                  <div class="method-signature">
+                    Se recorre la lista de objetos, que representa las encuestas obtenidas del servicio web externo.
+                  </div>
+                  <div class="method-subtitle">
+                    Map&lt;String,Object&gt; m=(Map&lt;String,Object&gt;) JSON.deserializeUntyped( JSON.serialize(encuestaObj) );
+                  </div>
+                  <div class="method-signature">
+                    Se crea un mapa de string a objeto, que representa la encuesta en formato JSON.
+                  </div>
+                  <div class="method-subtitle">
+                    if(m.get('encuesta') != null)
+                  </div>
+                  <div class="method-subtitle">
+                    externalIdEncuestas.add( String.valueOf(m.get('encuesta')) );
+                  </div>
+                  <div class="method-subtitle">
+                    if(m.get('nro-sucursal') != null)
+                  </div>
+                  <div class="method-subtitle">
+                    externalIdSucursales.add( String.valueOf(m.get('nro-sucursal')) );
+                  </div>
+                  <div class="method-subtitle">
+                    if(m.get('dni') != null)
+                  </div>
+                  <div class="method-subtitle">
+                    documentosABuscar.add( String.valueOf(m.get('dni')) );
+                  </div>
+                  <div class="method-subtitle">
+                    if(m.get('email') != null)
+                  </div>
+                  <div class="method-subtitle">
+                    emailABuscar.add( String.valueOf(m.get('email')) );
+                  </div>
+                  <div class="method-signature">
+                    Se verifica si el mapa tiene la clave 'encuesta', 'nro-sucursal', 'dni', 'email', que representa el identificador externo de la encuesta, sucursal, dni o email, y se agrega el identificador externo al conjunto de identificadores correspondiente, o a la lista correspondiente para el caso de 'dni' o 'email'.
+                  </div>
+                  <br>
+                  <br>
+                  <br>
+                  <div class="method-subtitle">
+                    List&lt;Encuesta__c&gt; encuestas=[SELECT Id,Id_Encuesta_Panoramia__c FROM Encuesta__c WHERE Id_Encuesta_Panoramia__c IN :externalIdEncuestas];
+                  </div>
+                  <div class="method-signature">
+                    Se crea una lista de objetos de tipo Encuesta__c, que representa las encuestas existentes en la base de datos. Se realiza una consulta SOQL, y se seleccionan los campos Id e Id_Encuesta_Panoramia__c, que representan el identificador interno y el identificador externo de la encuesta, respectivamente. Se filtra la consulta por el campo Id_Encuesta_Panoramia__c, que debe estar en el set externalIdEncuestas (identificadores externos de las encuestas).
+                  </div>
+                  <div class="method-subtitle">
+                    List&lt;Sucursal__c&gt; sucursales = [SELECT Id,Numero__c FROM Sucursal__c WHERE Numero__c IN :externalIdSucursales];
+                  </div>
+                  <div class="method-signature">
+                    Se crea una lista de objetos de tipo Sucursal__c, que representa las sucursales existentes en la base de datos. Se realiza una consulta SOQL, y se seleccionan los campos Id y Numero__c, que representan el identificador interno y el identificador externo de la sucursal, respectivamente. Se filtra la consulta por el campo Numero__c, que debe estar en el set externalIdSucursales (identificadores externos de las sucursales).
+                  </div>
+                  <div class="method-subtitle">
+                    List&lt;Account&gt; cuentas=[SELECT id,Numero_de_documento__c,PersonEmail,Email_Reservas_y_Envio_de_Medicamentos__c,
+                    Email_Factura_Electr_nica__c,Correo_TFM_com__c,Correo_GTL_com__c,Correo_Farmacity_com__c FROM Account WHERE Numero_de_documento__c IN : documentosABuscar OR PersonEmail IN : emailABuscar OR Email_Reservas_y_Envio_de_Medicamentos__c IN : emailABuscar OR Email_Factura_Electr_nica__c IN :emailABuscar OR Correo_TFM_com__c IN : emailABuscar OR Correo_GTL_com__c IN : emailABuscar OR Correo_Farmacity_com__c IN : emailABuscar];
+                  </div>
+                  <div class="method-signature">
+                    Se crea una lista de objetos de tipo Account, que representa las cuentas existentes en la base de datos. Se realiza una consulta SOQL, y se seleccionan los campos id, Numero_de_documento__c, PersonEmail, Email_Reservas_y_Envio_de_Medicamentos__c, Email_Factura_Electr_nica__c, Correo_TFM_com__c, Correo_GTL_com__c y Correo_Farmacity_com__c, que representan el identificador interno, el número de documento, el correo electrónico personal, el correo electrónico de reservas y envío de medicamentos, el correo electrónico de factura electrónica, el correo electrónico de TFM.com, el correo electrónico de GTL.com y el correo electrónico de Farmacity.com de la cuenta, respectivamente. Se filtra la consulta por el campo Numero_de_documento__c, que debe estar en la lista de documentos a buscar, o por cualquiera de los campos de correo electrónico, que deben estar en la lista de correos electrónicos a buscar.
+                  </div>
+                  <div class="method-subtitle">
+                    List&lt;Lead&gt; candidatos = [SELECT id,Email FROM Lead WHERE Email IN : emailABuscar AND IsConverted = FALSE];
+                  </div>
+                  <div class="method-signature">
+                    Se crea una lista de objetos de tipo Lead, que representa los leads existentes en la base de datos. Se realiza una consulta SOQL, y se seleccionan los campos id y Email, que representan el identificador interno y el correo electrónico del candidato, respectivamente. Se filtra la consulta por el campo Email, que debe estar en la lista de correos electrónicos a buscar, y por el campo IsConverted, que debe ser falso, lo que indica que el lead no se ha convertido en una cuenta.
+                  </div>
+                  <br>
+                  <br>
+                  <br>
+                  <div class="method-subtitle">
+                    for(Encuesta__c encuesta : encuestas)
+                  </div>
+                  <div class="method-subtitle">
+                    idByExternalIdEncuestasMap.put(encuesta.Id_Encuesta_Panoramia__c,encuesta.Id);
+                  </div>
+                  <div class="method-signature">
+                    Se recorre la lista de objetos de tipo Encuesta__c, que representa las encuestas existentes en la base de datos. Se agrega al mapa de identificadores internos de las encuestas por sus identificadores externos, la pareja formada por el campo Id_Encuesta_Panoramia__c y el campo Id de la encuesta.
+                  </div>
+                  <br>
+                  <br>
+                  <br>
+                  <div class="method-subtitle">
+                    for(Sucursal__c sucursal : sucursales)
+                  </div>
+                  <div class="method-subtitle">
+                    idByExternalIdSucursalesMap.put(sucursal.Numero__c,sucursal.Id);
+                  </div>
+                  <div class="method-signature">
+                    Se recorre la lista de objetos de tipo Sucursal__c, que representa las sucursales existentes en la base de datos. Se agrega al mapa de identificadores internos de las sucursales por sus identificadores externos, la pareja formada por el campo Numero__c y el campo Id de la sucursal.
+                  </div>
+                  <br>
+                  <br>
+                  <br>
+                  <div class="method-subtitle">
+                    for(Account cuenta : cuentas)
+                  </div>
+                  <div class="method-signature">
+                    Se recorre la lista de objetos de tipo Account, que representa las cuentas existentes en la base de datos.
+                  </div>
+                  <div class="method-subtitle">
+                    idByExternalIdAccountMap.put(cuenta.Numero_de_documento__c,cuenta.Id);
+                  </div>
+                  <div class="method-signature">
+                    Se agrega al mapa de identificadores internos de las cuentas por sus identificadores externos, la pareja formada por el campo Numero_de_documento__c y el campo Id de la cuenta.
+                  </div>
+                  <div class="method-subtitle">
+                    idByPersonEmailAccountMap.put(cuenta.PersonEmail,cuenta.Id);
+                  </div>
+                  <div class="method-signature">
+                    Se agrega al mapa de identificadores internos de las cuentas por sus correos electrónicos personales, la pareja formada por el campo PersonEmail y el campo Id de la cuenta.
+                  </div>
+                  <div class="method-subtitle">
+                    idByEmailReservasAccountMap.put(cuenta.Email_Reservas_y_Envio_de_Medicamentos__c,cuenta.Id);
+                  </div>
+                  <div class="method-signature">
+                    Se agrega al mapa de identificadores internos de las cuentas por sus correos electrónicos de reservas y envío de medicamentos, la pareja formada por el campo Email_Reservas_y_Envio_de_Medicamentos__c y el campo Id de la cuenta.
+                  </div>
+                  <div class="method-subtitle">
+                    idByEmailFacturaAccountMap.put(cuenta.Email_Factura_Electr_nica__c,cuenta.Id);
+                  </div>
+                  <div class="method-signature">
+                    Se agrega al mapa de identificadores internos de las cuentas por sus correos electrónicos de factura electrónica, la pareja formada por el campo Email_Factura_Electr_nica__c y el campo Id de la cuenta.
+                  </div>
+                  <div class="method-subtitle">
+                    idByEmailTFMAccountMap.put(cuenta.Correo_TFM_com__c,cuenta.Id);
+                  </div>
+                  <div class="method-signature">
+                    Se agrega al mapa de identificadores internos de las cuentas por sus correos electrónicos de TFM.com, la pareja formada por el campo Correo_TFM_com__c y el campo Id de la cuenta.
+                  </div>
+                  <div class="method-subtitle">
+                    idByEmailGTLAccountMap.put(cuenta.Correo_GTL_com__c,cuenta.Id);
+                  </div>
+                  <div class="method-signature">
+                    Se agrega al mapa de identificadores internos de las cuentas por sus correos electrónicos de GTL.com, la pareja formada por el campo Correo_GTL_com__c y el campo Id de la cuenta.
+                  </div>
+                  <div class="method-subtitle">
+                    idByEmailFarmacityAccountMap.put(cuenta.Correo_Farmacity_com__c,cuenta.Id);
+                  </div>
+                  <div class="method-signature">
+                    Se agrega al mapa de identificadores internos de las cuentas por sus correos electrónicos de Farmacity.com, la pareja formada por el campo Correo_Farmacity_com__c y el campo Id de la cuenta.
+                  </div>
+                  <br>
+                  <br>
+                  <br>
+                  <div class="method-subtitle">
+                    for(Lead candidato : candidatos)
+                  </div>
+                  <div class="method-subtitle">
+                    idByExternalIdLeadMap.put(candidato.Email,candidato.Id);
+                  </div>
+                  <div class="method-signature">
+                    Se recorre la lista de objetos de tipo Lead, que representa los leads existentes en la base de datos. Se agrega al mapa de identificadores internos de los candidatos por sus identificadores externos, la pareja formada por el campo Email y el campo Id del candidato.
+                  </div>
+                  <br>
+                  <br>
+                  <br>
+                  <div class="method-subtitle">
+                    for(Object encuestaObj : scope)
+                  </div>
+                  <div class="method-signature">
+                    Se recorre la lista de objetos, que representa las encuestas obtenidas del servicio web externo.
+                  </div>
+                  <div class="method-subtitle">
+                    Map&lt;String,Object&gt; m = (Map&lt;String,Object&gt;) JSON.deserializeUntyped( JSON.serialize(encuestaObj) );
+                  </div>
+                  <div class="method-signature">
+                    Se crea un mapa de string a objeto, que representa la encuesta en formato JSON.
+                  </div>
+                  <div class="method-subtitle">
+                    if(m.get('encuesta') != null && idByExternalIdEncuestasMap.get(String.valueOf(m.get('encuesta'))) == null)
+                  </div>
+                  <div class="method-signature">
+                    Se verifica si el mapa tiene la clave 'encuesta', que representa el identificador externo de la encuesta, y si el mapa de identificadores internos de las encuestas por sus identificadores externos no tiene el valor asociado al identificador externo de la encuesta.
+                  </div>
+                  <div class="method-subtitle">
+                    idByExternalIdEncuestasMap.put(String.valueOf(m.get('encuesta')),' ');
+                  </div>
+                  <div class="method-signature">
+                    Se agrega al mapa de identificadores internos de las encuestas por sus identificadores externos, la pareja formada por el identificador externo de la encuesta y una cadena vacía.
+                  </div>
+                  <div class="method-subtitle">
+                    newEncuestas.add(new Encuesta__c(Name = String.valueOf(m.get('encuesta')),Id_Encuesta_Panoramia__c=String.valueOf(m.get('encuesta')),Canal__c = String.valueOf(m.get('canal')),Foco__c = String.valueOf(m.get('foco')) == 'TFM' ? 'The Food Market' : String.valueOf(m.get('foco')),Modalidad_Entrega__c = String.valueOf(m.get('modalidad-entrega'))));
+                  </div>
+                  <div class="method-signature">
+                    Se crea un objeto de tipo Encuesta__c, que representa una nueva encuesta, y se le asignan los valores de los campos Name, Id_Encuesta_Panoramia__c, Canal__c, Foco__c y Modalidad_Entrega__c, que se obtienen del mapa de la encuesta en formato JSON. El campo Foco__c se asigna según el valor de la clave 'foco', que puede ser 'TFM' o no, y se usa un operador ternario para asignar el valor 'The Food Market' o el valor de la clave 'foco', respectivamente. Se asigna el valor del campo Modalidad_Entrega__c, que se obtiene del mapa de la encuesta en formato JSON. Se agrega el objeto de tipo Encuesta__c a la lista de nuevas encuestas que se van a insertar.
+                  </div>
+                  <div class="method-subtitle">
+                    if(m.get('nro-sucursal') != null && idByExternalIdSucursalesMap.get(String.valueOf(m.get('nro-sucursal'))) == null)
+                  </div>
+                  <div class="method-signature">
+                    Se verifica si el mapa tiene la clave 'nro-sucursal', que representa el identificador externo de la sucursal, y si el mapa de identificadores internos de las sucursales por sus identificadores externos no tiene el valor asociado al identificador externo de la sucursal.
+                  </div>
+                  <div class="method-subtitle">
+                    idByExternalIdSucursalesMap.put(String.valueOf(m.get('nro-sucursal')),' ');
+                  </div>
+                  <div class="method-signature">
+                    Se agrega al mapa de identificadores internos de las sucursales por sus identificadores externos, la pareja formada por el identificador externo de la sucursal y una cadena vacía.
+                  </div>
+                  <div class="method-subtitle">
+                    newSucursales.add(new Sucursal__c(Name = String.valueOf(m.get('nro-sucursal'))));
+                  </div>
+                  <div class="method-signature">
+                    Se crea un objeto de tipo Sucursal__c, que representa una nueva sucursal, y se le asigna el valor del campo Name, que se obtiene del mapa de la encuesta en formato JSON. Se agrega el objeto de tipo Sucursal__c a la lista de nuevas sucursales que se van a insertar.
+                  </div>
+                  <div class="method-subtitle">
+                    if(m.get('dni') != null && idByExternalIdAccountMap.get(String.valueOf(m.get('dni'))) == null)
+                  </div>
+                  <div class="method-signature">
+                    Se verifica si el mapa tiene la clave 'dni', que representa el documento del cliente, y si el mapa de identificadores internos de las cuentas por sus identificadores externos no tiene el valor asociado al documento del cliente.
+                  </div>
+                  <div class="method-subtitle">
+                    idByExternalIdAccountMap.put(String.valueOf(m.get('dni')),' ');
+                  </div>
+                  <div class="method-signature">
+                    Se agrega al mapa de identificadores internos de las cuentas por sus identificadores externos, la pareja formada por el documento del cliente y una cadena vacía.
+                  </div>
+                  <div class="method-subtitle">
+                    String formato = String.valueOf(m.get('foco')) == 'TFM' ? 'The Food Market' : String.valueOf(m.get('foco'));
+                  </div>
+                  <div class="method-signature">
+                    Se crea un string, que representa el formato de la encuesta, y se le asigna el valor de la clave 'foco', que se obtiene del mapa de la encuesta en formato JSON. Si el valor de la clave 'foco' es 'TFM', se le asigna el valor 'The Food Market', sino se le asigna el valor de la clave 'foco'.
+                  </div>
+                  <div class="method-subtitle">
+                    String canal = String.valueOf(m.get('canal'));
+                  </div>
+                  <div class="method-signature">
+                    Se crea un sting, que representa el canal de la encuesta, y se le asigna el valor de la clave 'canal', que se obtiene del mapa de la encuesta en formato JSON.
+                  </div>
+                  <div class="method-subtitle">
+                    newCuentas.add(
+                    new Account(
+                        FirstName = m.get('nombre') != null ? String.valueOf(m.get('nombre')) : ' ',
+                        LastName = m.get('apellido') != null ? String.valueOf(m.get('apellido')) : ' ',
+                        RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByDeveloperName().get('PersonAccount').getRecordTypeId(),
+                        Tipo_de_documento__c = 'DNI',
+                        Numero_de_documento__c = String.valueOf(m.get('dni')),
+                        PersonEmail = m.get('email') != null ? String.valueOf(m.get('email')) : ' ',
+                        Phone = m.get('telefono') != null ? String.valueOf(m.get('telefono')) : ' ',
+                        Formato__c = formato, 
+                        Optins__c = (formato != null && canal != null) ? (canal == 'B' ? formato+'-'+formato+'.com' : formato+'-PDV') : ' '
+                      )
+                    );
+                  </div>
+                  <div class="method-signature">
+                    Se crea un objeto de tipo Account, que representa una nueva cuenta, y se le asignan los valores de los campos FirstName, LastName, RecordTypeId, Tipo_de_documento__c, Numero_de_documento__c, PersonEmail, Phone, Formato__c y Optins__c, que se obtienen del mapa de la encuesta en formato JSON o de otras variables. El campo RecordTypeId se asigna con el identificador del tipo de registro 'PersonAccount', que se obtiene de la información de los tipos de registro del objeto Account. El campo Optins__c se asigna según el valor de la variable formato y la variable canal, y se usa un operador ternario para asignar el valor formato+'-'+formato+'.com' o el valor formato+'-PDV', respectivamente. Se agrega el objeto de tipo Account a la lista de nuevas cuentas que se van a insertar.
+                  </div>
+                  <div class="method-subtitle">
+                    if(m.get('email') != null && idByExternalIdLeadMap.get(String.valueOf(m.get('email'))) == null && idByPersonEmailAccountMap.get(String.valueOf(m.get('email'))) == null && idByEmailReservasAccountMap.get(String.valueOf(m.get('email'))) == null && idByEmailFacturaAccountMap.get(String.valueOf(m.get('email'))) == null && idByEmailTFMAccountMap.get(String.valueOf(m.get('email'))) == null && idByEmailGTLAccountMap.get(String.valueOf(m.get('email'))) == null && idByEmailFarmacityAccountMap.get(String.valueOf(m.get('email'))) == null)
+                  </div>
+                  <div class="method-signature">
+                    Se verifica si el mapa tiene la clave 'email', que representa el correo electrónico del cliente, y si ninguno de los mapas de identificadores internos de las cuentas o los candidatos por sus identificadores externos tiene el valor asociado al correo electrónico del cliente.
+                  </div>
+                  <div class="method-subtitle">
+                    idByExternalIdLeadMap.put(String.valueOf(m.get('email')),' ');
+                  </div>
+                  <div class="method-subtitle">
+                    idByPersonEmailAccountMap.put(String.valueOf(m.get('email')),' ');
+                  </div>
+                  <div class="method-subtitle">
+                    idByEmailReservasAccountMap.put(String.valueOf(m.get('email')),' ');
+                  </div>
+                  <div class="method-subtitle">
+                    idByEmailFacturaAccountMap.put(String.valueOf(m.get('email')),' ');
+                  </div>
+                  <div class="method-subtitle">
+                    idByEmailTFMAccountMap.put(String.valueOf(m.get('email')),' ');
+                  </div>
+                  <div class="method-subtitle">
+                    idByEmailGTLAccountMap.put(String.valueOf(m.get('email')),' ');
+                  </div>
+                  <div class="method-subtitle">
+                    idByEmailFarmacityAccountMap.put(String.valueOf(m.get('email')),' ');
+                  </div>
+                  <div class="method-signature">
+                    Se agrega a cada uno de los mapas de identificadores internos de las cuentas o los candidatos por sus identificadores externos, la pareja formada por el correo electrónico del cliente y una cadena vacía.
+                  </div>
+                  <div class="method-subtitle">
+                    newCandidatos.add(new Lead(LastName = !String.isEmpty(String.valueOf(m.get('apellido'))) ? String.valueOf(m.get('apellido')) : String.valueOf(m.get('email')), FirstName = !String.isEmpty(String.valueOf(m.get('nombre'))) ? String.valueOf(m.get('nombre')) : null, Email = String.valueOf(m.get('email'))));
+                  </div>
+                  <div class="method-signature">
+                    Se crea un objeto de tipo Lead, que representa un nuevo lead, y se le asignan los valores de los campos LastName, FirstName y Email, que se obtienen del mapa de la encuesta en formato JSON o de otras variables. El campo LastName se asigna según el valor de la clave 'apellido', que puede estar vacío o no, y se usa un operador ternario para asignar el valor de la clave 'apellido' o el valor de la clave 'email', respectivamente. El campo FirstName se asigna según el valor de la clave 'nombre', que puede estar vacío o no, y se usa un operador ternario para asignar el valor de la clave 'nombre' o el valor nulo, respectivamente. El campo Email se asigna con el valor de la clave 'email', que se obtiene del mapa de la encuesta en formato JSON. Se agrega el objeto de tipo Lead a la lista de nuevos leads que se van a insertar.
+                  </div>
+                  <br>
+                  <br>
+                  <br>
+                  <div class="method-subtitle">
+                    Database.insert(newEncuestas,false);
+                  </div>
+                  <div class="method-subtitle">
+                    Database.insert(newSucursales,false);
+                  </div>
+                  <div class="method-subtitle">
+                    Database.insert(newCuentas,false);
+                  </div>
+                  <div class="method-subtitle">
+                    Database.insert(newCandidatos,false);
+                  </div>
+                  <div class="method-signature">
+                    Se insertan las listas de nuevos objetos que se han creado, usando el método Database.insert, que permite insertar registros en la base de datos de Salesforce. Se pasa como primer parámetro la lista de objetos que se quiere insertar, y como segundo parámetro un valor booleano que indica si se quiere permitir errores parciales o no. Si el valor booleano es falso, se lanzará una excepción si alguno de los registros no se puede insertar, y se detendrá el proceso por lotes. Si el valor booleano es verdadero, se devolverá un resultado que indica qué registros se han insertado correctamente y cuáles no, y se continuará el proceso por lotes.
+                  </div>
+                  <br>
+                  <br>
+                  <br>
+                  <div class="method-subtitle">
+                    encuestas = [SELECT Id,Id_Encuesta_Panoramia__c FROM Encuesta__c WHERE Id_Encuesta_Panoramia__c IN :externalIdEncuestas];
+                  </div>
+                  <div class="method-subtitle">
+                    sucursales = [SELECT id,Numero__c FROM Sucursal__c WHERE Numero__c IN : externalIdSucursales];
+                  </div>
+                  <div class="method-subtitle">
+                    cuentas = [SELECT id,Numero_de_documento__c,PersonEmail,Email_Reservas_y_Envio_de_Medicamentos__c,Email_Factura_Electr_nica__c,Correo_TFM_com__c,Correo_GTL_com__c,Correo_Farmacity_com__c FROM Account WHERE Numero_de_documento__c IN : documentosABuscar OR PersonEmail IN : emailABuscar OR Email_Reservas_y_Envio_de_Medicamentos__c IN : emailABuscar OR Email_Factura_Electr_nica__c IN : emailABuscar OR Correo_TFM_com__c IN : emailABuscar OR Correo_GTL_com__c IN : emailABuscar OR Correo_Farmacity_com__c IN : emailABuscar];
+                  </div>
+                  <div class="method-subtitle">
+                    candidatos = [SELECT id,Email FROM Lead WHERE Email IN : emailABuscar  AND IsConverted = FALSE];
+                  </div>
+                  <div class="method-signature">
+                    Se vuelve a consultar las listas de objetos que se han insertado, usando el lenguaje SOQL, para obtener sus identificadores internos actualizados. En la consulta para encuestas, se filtra la consulta por el campo Id_Encuesta_Panoramia__c, y para la consulta de sucursales, se filtra por el campo Numero__c, que deben estar en el conjunto de identificadores externos de las encuestas o las sucursales, respectivamente. En la consulta de cuentas, se filtra la consulta por el campo Numero_de_documento__c o cualquiera de los campos de correo electrónico, que deben estar en la lista de documentos o correos electrónicos a buscar, respectivamente. En la consulta de leads, se filtra la consulta por el campo Email, que debe estar en la lista de correos electrónicos a buscar, y por el campo IsConverted, que debe ser falso, lo que indica que el lead no se ha convertido en una cuenta.
+                  </div>
+                  <br>
+                  <br>
+                  <br>
+                  <div class="method-subtitle">
+                    for(Encuesta__c encuesta : encuestas)
+                  </div>
+                  <div class="method-subtitle">
+                    idByExternalIdEncuestasMap.put(encuesta.Id_Encuesta_Panoramia__c,encuesta.Id);
+                  </div>
+                  <div class="method-signature">
+                    Se recorre la lista de objetos de tipo Encuesta__c, que representa las encuestas insertadas en la base de datos. Se agrega al mapa de identificadores internos de las encuestas por sus identificadores externos, la pareja formada por el campo Id_Encuesta_Panoramia__c y el campo Id de la encuesta.
+                  </div>
+                  <br>
+                  <br>
+                  <br>
+                  <div class="method-subtitle">
+                    for(Sucursal__c sucursal : sucursales)
+                  </div>
+                  <div class="method-subtitle">
+                    idByExternalIdSucursalesMap.put(sucursal.Numero__c,sucursal.Id);
+                  </div>
+                  <div class="method-signature">
+                    Se recorre la lista de objetos de tipo Sucursal__c, que representa las sucursales insertadas en la base de datos. Se agrega al mapa de identificadores internos de las sucursales por sus identificadores externos, la pareja formada por el campo Numero__c y el campo Id de la sucursal.
+                  </div>
+                  <br>
+                  <br>
+                  <br>
+                  <div class="method-subtitle">
+                    for(Account cuenta : cuentas)
+                  </div>
+                  <div class="method-signature">
+                    Se recorre la lista de objetos de tipo Account, que representa las cuentas insertadas en la base de datos.
+                  </div>
+                  <div class="method-subtitle">
+                    idByExternalIdAccountMap.put(cuenta.Numero_de_documento__c,cuenta.Id);
+                  </div>
+                  <div class="method-signature">
+                    Se agrega al mapa de identificadores internos de las cuentas por sus identificadores externos, la pareja formada por el campo Numero_de_documento__c y el campo Id de la cuenta.
+                  </div>
+                  <div class="method-subtitle">
+                    idByPersonEmailAccountMap.put(cuenta.PersonEmail,cuenta.Id);
+                  </div>
+                  <div class="method-signature">
+                    Se agrega al mapa de identificadores internos de las cuentas por sus correos electrónicos personales, la pareja formada por el campo PersonEmail y el campo Id de la cuenta.
+                  </div>
+                  <div class="method-subtitle">
+                    idByEmailReservasAccountMap.put(cuenta.Email_Reservas_y_Envio_de_Medicamentos__c,cuenta.Id);
+                  </div>
+                  <div class="method-signature">
+                    Se agrega al mapa de identificadores internos de las cuentas por sus correos electrónicos de reservas y envío de medicamentos, la pareja formada por el campo Email_Reservas_y_Envio_de_Medicamentos__c y el campo Id de la cuenta.
+                  </div>
+                  <div class="method-subtitle">
+                    idByEmailFacturaAccountMap.put(cuenta.Email_Factura_Electr_nica__c,cuenta.Id);
+                  </div>
+                  <div class="method-signature">
+                    Se agrega al mapa de identificadores internos de las cuentas por sus correos electrónicos de factura electrónica, la pareja formada por el campo Email_Factura_Electr_nica__c y el campo Id de la cuenta.
+                  </div>
+                  <div class="method-subtitle">
+                    idByEmailTFMAccountMap.put(cuenta.Correo_TFM_com__c,cuenta.Id);
+                  </div>
+                  <div class="method-subtitle">
+                    idByEmailGTLAccountMap.put(cuenta.Correo_GTL_com__c,cuenta.Id);
+                  </div>
+                  <div class="method-subtitle">
+                    idByEmailFarmacityAccountMap.put(cuenta.Correo_Farmacity_com__c,cuenta.Id);
+                  </div>
+                  <div class="method-signature">
+                    Se agrega a los mapas de identificadores internos de las cuentas por sus correos electrónicos de TFM, GTL o Farmacity, la pareja formada por el campo correspondiente y el campo Id de la cuenta.
+                  </div>
+                  <br>
+                  <br>
+                  <br>
+                  <div class="method-subtitle">
+                    for(Lead candidato : candidatos)
+                  </div>
+                  <div class="method-subtitle">
+                    idByExternalIdLeadMap.put(candidato.Email,candidato.Id);
+                  </div>
+                  <div class="method-signature">
+                    Se recorre la lista de objetos de tipo Lead, que representa los candidatos existentes en la base de datos. Se agrega al mapa de identificadores internos de los candidatos por sus identificadores externos, la pareja formada por el campo Email y el campo Id del candidato.
+                  </div>
+                  <br>
+                  <br>
+                  <br>
+                  <div class="method-subtitle">
+                    for(Object encuestaObj : scope)
+                  </div>
+                  <div class="method-signature">
+                    Se recorre la lista de objetos, que representa las encuestas obtenidas del servicio web externo.
+                  </div>
+                  <div class="method-subtitle">
+                    Map&lt;String,Object&gt; m = (Map&lt;String,Object&gt;) JSON.deserializeUntyped( JSON.serialize(encuestaObj) );
+                  </div>
+                  <div class="method-signature">
+                    Se crea un mapa de strings a objetos, que representa la encuesta en formato JSON.
+                  </div>
+                  <div class="method-subtitle">
+                    if(m.get('encuesta') != null)
+                  </div>
+                  <div class="method-signature">
+                    Se verifica si el mapa tiene la clave 'encuesta', que representa el identificador externo de la encuesta.
+                  </div>
+                  <div class="method-subtitle">
+                    String idSucursal;
+                  </div>
+                  <div class="method-signature">
+                    Se declara una variable de tipo cadena, que representa el identificador interno de la sucursal.
+                  </div>
+                  <div class="method-subtitle">
+                    if(m.get('nro-sucursal') != null && m.get('nro-sucursal') != ' ')
+                  </div>
+                  <div class="method-signature">
+                    Se verifica si el mapa tiene la clave 'nro-sucursal', que representa el identificador externo de la sucursal, y si el valor asociado a esa clave no está vacío.
+                  </div>
+                  <div class="method-subtitle">
+                    if(idByExternalIdSucursalesMap.get(String.valueOf(m.get('nro-sucursal'))) != null )
+                  </div>
+                  <div class="method-signature">
+                    Se verifica si el mapa de identificadores internos de las sucursales por sus identificadores externos tiene el valor asociado al identificador externo de la sucursal.
+                  </div>
+                  <div class="method-subtitle">
+                    idSucursal = idByExternalIdSucursalesMap.get(String.valueOf(m.get('nro-sucursal')));
+                  </div>
+                  <div class="method-signature">
+                    Se asigna a la variable idSucursal el valor asociado a 'nro-sucursal' en el mapa idByExternalIdSucursalesMap (identificadores internos de las sucursales por sus identificadores externos).
+                  </div>
+                  <div class="method-subtitle">
+                    String idCuenta = null;
+                  </div>
+                  <div class="method-signature">
+                    Se declara una variable de tipo cadena, que representa el identificador interno de la cuenta, y se le da el valor null.
+                  </div>
+                  <div class="method-subtitle">
+                    if(m.get('dni') != null && m.get('dni') != ' ')
+                  </div>
+                  <div class="method-signature">
+                    Se verifica si el mapa tiene la clave 'dni', que representa el número de documento del cliente, y si el valor asociado a esa clave no está vacío.
+                  </div>
+                  <div class="method-subtitle">
+                    if(idByExternalIdAccountMap.get(String.valueOf(m.get('dni'))) != null )
+                  </div>
+                  <div class="method-signature">
+                    Se verifica si el mapa de identificadores internos de las cuentas por sus identificadores externos tiene el valor asociado al número de documento del cliente.
+                  </div>
+                  <div class="method-subtitle">
+                    idCuenta = idByExternalIdAccountMap.get(String.valueOf(m.get('dni')));
+                  </div>
+                  <div class="method-signature">
+                    Se asigna a la variable idCuenta el valor asociado a 'dni' en idByExternalIdAccountMap (mapa de identificadores internos de las cuentas por sus identificadores externos).
+                  </div>
+                  <div class="method-subtitle">
+                    String idCandidato;
+                  </div>
+                  <div class="method-signature">
+                    Se declara una variable de tipo cadena, que representa el identificador interno del candidato.
+                  </div>
+                  <div class="method-subtitle">
+                    if(m.get('email') != null && m.get('email') != '' && idCuenta == null)
+                  </div>
+                  <div class="method-signature">
+                    Se verifica si el mapa tiene la clave 'email', que representa el correo electrónico del cliente, y si el valor asociado a esa clave no está vacío, y si la variable idCuenta es nula, lo que indica que no se ha encontrado una cuenta asociada al cliente.
+                  </div>
+                  <div class="method-subtitle">
+                    if(idByExternalIdLeadMap.get(String.valueOf(m.get('email'))) != null )
+                  </div>
+                  <div class="method-signature">
+                    Se verifica si el mapa de identificadores internos de los candidatos por sus identificadores externos tiene el valor asociado al correo electrónico del cliente.
+                  </div>
+                  <div class="method-subtitle">
+                    idCandidato = idByExternalIdLeadMap.get(String.valueOf(m.get('email')));
+                  </div>
+                  <div class="method-signature">
+                    Se asigna a la variable idCandidato el valor asociado a 'email' en idByExternalIdLeadMap (mapa de identificadores internos de los candidatos por sus identificadores externos).
+                  </div>
+                  <div class="method-subtitle">
+                    if(idByPersonEmailAccountMap.get(String.valueOf(m.get('email'))) != null ){idCuenta = idByPersonEmailAccountMap.get(String.valueOf(m.get('email')));}
+                  </div>
+                  <div class="method-subtitle">
+                    if(idByEmailReservasAccountMap.get(String.valueOf(m.get('email'))) != null ){idCuenta = idByEmailReservasAccountMap.get(String.valueOf(m.get('email')));}
+                  </div>
+                  <div class="method-subtitle">
+                    if(idByEmailFacturaAccountMap.get(String.valueOf(m.get('email'))) != null ){idCuenta = idByEmailFacturaAccountMap.get(String.valueOf(m.get('email')));}
+                  </div>
+                  <div class="method-subtitle">
+                    if(idByEmailTFMAccountMap.get(String.valueOf(m.get('email'))) != null ){idCuenta = idByEmailTFMAccountMap.get(String.valueOf(m.get('email')));}
+                  </div>
+                  <div class="method-subtitle">
+                    if(idByEmailGTLAccountMap.get(String.valueOf(m.get('email'))) != null ){idCuenta = idByEmailGTLAccountMap.get(String.valueOf(m.get('email')));}
+                  </div>
+                  <div class="method-subtitle">
+                    if(idByEmailFarmacityAccountMap.get(String.valueOf(m.get('email'))) != null ){idCuenta = idByEmailFarmacityAccountMap.get(String.valueOf(m.get('email')));}
+                  </div>
+                  <div class="method-signature">
+                    Se verifica si alguno de los mapas de identificadores internos de las cuentas por sus correos electrónicos tiene el valor asociado al correo electrónico del cliente. Se asigna a la variable idCuenta el valor asociado al correo electrónico del cliente en el mapa correspondiente, si existe.
+                  </div>
+                  <div class="method-subtitle">
+                    newEncuestasRealizadas.add(
+                    new Encuesta_Realizada__c(
+                        Id_Panoramia__c = String.valueOf(m.get('id')),
+                        Name = String.valueOf(m.get('encuesta')) + '-' + String.valueOf(m.get('nro-sucursal')),
+                        Encuesta__c = idByExternalIdEncuestasMap.get(String.valueOf(m.get('encuesta'))),
+                        Fecha__c = Datetime.valueOf( String.valueOf(m.get('fecha')).replace('T',' ').replace('-03:00','') ),
+                        N_Ticket__c = String.valueOf(m.get('nro-ticket')),
+                        Sucursal__c = idSucursal != null && idSucursal != ' ' ? idSucursal : null,
+                        Nps__c = Integer.valueOf(m.get('nps')),
+                        Comentario__c = String.valueOf(m.get('comentario')),
+                        Motivo_Detracci_n__c = String.valueOf(m.get('motivo-detraccion')),
+                        Numero_de_Documento__c = String.valueOf(m.get('dni')),
+                        Email__c = String.valueOf(m.get('email')),
+                        Nombre__c = String.valueOf(m.get('nombre')),
+                        Apellido__c = String.valueOf(m.get('apellido')),
+                        Telefono__c = String.valueOf(m.get('telefono')),
+                        Cuenta__c = idCuenta != null && idCuenta != ' ' ? idCuenta : null,
+                        Candidato__c = idCandidato != null && idCandidato != ' ' ? idCandidato : null));
+                  </div>
+                  <div class="method-signature">
+                    Se crea un objeto de tipo Encuesta_Realizada__c, que representa una nueva encuesta realizada, y se le asignan los valores de los campos Id_Panoramia__c, Name, Encuesta__c, Fecha__c, N_Ticket__c, Sucursal__c, Nps__c, Comentario__c, Motivo_Detracci_n__c, Numero_de_Documento__c, Email__c, Nombre__c, Apellido__c, Telefono__c, Cuenta__c y Candidato__c, que se obtienen del mapa de la encuesta en formato JSON, de las variables idSucursal, idCuenta e idCandidato, o de valores nulos, según corresponda. El campo Name se asigna con la concatenación del identificador externo de la encuesta y el identificador externo de la sucursal, separados por un guión. El campo Fecha__c se asigna con el valor de la clave 'fecha', que representa la fecha y hora de la encuesta realizada, y se le aplica un reemplazo de cadenas para eliminar el carácter 'T' y la zona horaria '-03:00', y se le aplica una conversión a tipo Datetime. El campo Sucursal__c se asigna con la variable idSucursal, que representa el identificador interno de la sucursal, o con el valor nulo, si la variable idSucursal es nula o está vacía. El campo Nps__c se asigna con el valor de la clave 'nps', que representa la puntuación del cliente, y se le aplica una conversión a tipo entero. El campo Cuenta__c se asigna con la variable idCuenta, que representa el identificador interno de la cuenta, o con el valor nulo, si la variable idCuenta es nula o está vacía. El campo Candidato__c se asigna con la variable idCandidato, que representa el identificador interno del candidato, o con el valor nulo, si la variable idCandidato es nula o está vacía.
+                  </div>
+                  <br>
+                  <br>
+                  <br>
+                  <div class="method-subtitle">
+                    Database.insert(newEncuestasRealizadas,false);
+                  </div>
+                  <div class="method-signature">
+                    Se insertan la lista de nuevos objetos de tipo Encuesta_Realizada__c que se han creado, usando el método Database.insert, que permite insertar registros en la base de datos de Salesforce. Se pasa como primer parámetro la lista de objetos que se quiere insertar, y como segundo parámetro un valor booleano que indica si se quiere permitir errores parciales o no. Si el valor booleano es falso, se lanzará una excepción si alguno de los registros no se puede insertar, y se detendrá el proceso por lotes. Si el valor booleano es verdadero, se continuará el proceso por lotes, y se podrá acceder a los resultados de la inserción mediante el objeto Database.SaveResult.
+                  </div>
+                </div>
+                <div class="method public">
+                  <h4 class="method-title " id="EncuestasObtenerBatch.execute">
+                    <span>finish(bc)</span>
+                  </h4>
+                  <div class="method-signature">
+                    Se define un método llamado finish, que se ejecuta al finalizar el proceso por lotes. Este método recibe como parámetro un objeto de tipo Database.BatchableContext, que representa el contexto de ejecución del proceso por lotes. En este caso, el método no tiene ninguna instrucción, por lo que no realiza ninguna acción.
+                  </div>
+                </div>
+                <div class="method public">
+                  <h2 class="class-title top-level-type" id="EncuestasObtenerBatch">
+                    <span>Modelo de JSON a obtener desde API de encuestas</span>
+                  </h2>
+                  <div class="method-subtitle">
+                    { "id": "123456",
+                  </div>
+                  <div class="method-subtitle">
+                    "encuesta": "204", // Encuestas en BBDD Salesforce 204,241,245,246,247,264,265
+                  </div>
+                  <div class="method-subtitle">
+                    "nro-sucursal": "006",
+                  </div>
+                  <div class="method-subtitle">
+                    "fecha": "2024-03-05T08:52:11-03:00",
+                  </div>
+                  <div class="method-subtitle">
+                    "nro-ticket": "7890",
+                  </div>
+                  <div class="method-subtitle">
+                    "nps": "8",
+                  </div>
+                  <div class="method-subtitle">
+                    "comentario": "Buen servicio",
+                  </div>
+                  <div class="method-subtitle">
+                    "motivo-detraccion": "",
+                  </div>
+                  <div class="method-subtitle">
+                    "dni": "12345678",
+                  </div>
+                  <div class="method-subtitle">
+                    "email": "juan@gmail.com",
+                  </div>
+                  <div class="method-subtitle">
+                    "nombre": "Juan",
+                  </div>
+                  <div class="method-subtitle">
+                    "apellido": "Pérez",
+                  </div>
+                  <div class="method-subtitle">
+                    "telefono": "011-1234-5678" }
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <div/>
+      </div>
+      <div>
+        <div class="footer">
+
+          <div>
+            <a href="https://github.com/TheTorOnionSeeker" target="_blank" rel="noopener noreferrer">
+              Documented By Guillermo Núñez
+            </a>
+          </div>
+        </>
+      </div>
+    </div>
+  </body>
+
+</html>
